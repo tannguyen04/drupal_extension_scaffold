@@ -71,3 +71,6 @@ jobs:
       - name: Lint code with Twigcs
         working-directory: build
         run: vendor/bin/twigcs || [ "${CI_TWIGCS_IGNORE_FAILURE:-0}" -eq 1 ]
+
+      - name: Run tests
+        run: .devtools/test.sh || [ "${CI_TEST_IGNORE_FAILURE:-0}" -eq 1 ]
