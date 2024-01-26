@@ -107,6 +107,7 @@ jobs:
         with:
           key: ${{ secrets.SSH_KEY }}
           name: id_rsa_${{ secrets.DEPLOY_SSH_FINGERPRINT }}
+          known_hosts: unnecessary
 
       - name: Deploy to Remote
         run: DEPLOY_BRANCH=${DEPLOY_BRANCH:-${GITHUB_REF_NAME}} .devtools/deploy.sh
