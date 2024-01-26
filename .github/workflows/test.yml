@@ -1,6 +1,15 @@
 name: CI
 
-on: push
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - main
+      - 'feature/**'
 
 jobs:
   buid:
@@ -80,3 +89,4 @@ jobs:
         with:
           name: Job Test output (${{ join(matrix.*, ', ') }})
           path: build/web/sites/simpletest/browser_output
+
