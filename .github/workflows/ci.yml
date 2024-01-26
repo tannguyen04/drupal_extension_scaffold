@@ -12,37 +12,37 @@ on:
       - 'feature/**'
 
 jobs:
-  build-and-test:
-    runs-on: 'ubuntu-20.04'
-
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - php-versions: '8.1'
-            drupal-versions: 'stable'
-
-          - php-versions: '8.2'
-            drupal-versions: 'stable'
-
-          - php-versions: '8.1'
-            drupal-versions: '9.5'
-            drupal-project-hash: '9.x'
-
-          - php-versions: '8.2'
-            drupal-versions: '9.5'
-            drupal-project-hash: '9.x'
-
-          - php-versions: '8.2'
-            drupal-version: '10@beta'
-
-    env:
-      DRUPAL_VERSION: ${{ matrix.drupal-versions }}
-      DRUPAL_PROJECT_SHA: ${{ matrix.drupal-project-hash }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+#  build-and-test:
+#    runs-on: 'ubuntu-20.04'
+#
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        include:
+#          - php-versions: '8.1'
+#            drupal-versions: 'stable'
+#
+#          - php-versions: '8.2'
+#            drupal-versions: 'stable'
+#
+#          - php-versions: '8.1'
+#            drupal-versions: '9.5'
+#            drupal-project-hash: '9.x'
+#
+#          - php-versions: '8.2'
+#            drupal-versions: '9.5'
+#            drupal-project-hash: '9.x'
+#
+#          - php-versions: '8.2'
+#            drupal-version: '10@beta'
+#
+#    env:
+#      DRUPAL_VERSION: ${{ matrix.drupal-versions }}
+#      DRUPAL_PROJECT_SHA: ${{ matrix.drupal-project-hash }}
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
 
 #      - name: Setup PHP
 #        uses: shivammathur/setup-php@v2
@@ -97,7 +97,7 @@ jobs:
       DEPLOY_REMOTE: ${{ secrets.DEPLOY_REMOTE }}
       DEPLOY_PROCEED: ${{ secrets.DEPLOY_PROCEED }}
       DEPLOY_SSH_FINGERPRINT: ${{ secrets.DEPLOY_SSH_FINGERPRINT }}
-    needs: [build-and-test]
+    #needs: [build-and-test]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
