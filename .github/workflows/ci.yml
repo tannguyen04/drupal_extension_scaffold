@@ -42,3 +42,6 @@ jobs:
 
       - name: Test
         run: echo "$DRUPAL_PROJECT_SHA $DRUPAL_VERSION. Today is $DAY_OF_WEEK!"
+
+      - name: Build the codebase
+        run: .devtools/build-codebase.sh
