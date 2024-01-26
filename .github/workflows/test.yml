@@ -12,7 +12,7 @@ on:
       - 'feature/**'
 
 jobs:
-  buid:
+  build-and-test:
     runs-on: 'ubuntu-20.04'
 
     strategy:
@@ -89,4 +89,10 @@ jobs:
         with:
           name: Job Test output (${{ join(matrix.*, ', ') }})
           path: build/web/sites/simpletest/browser_output
-
+  deploy:
+    runs-on: 'ubuntu-20.04'
+    if: startsWith(github.event.ref, 'refs/tags/')
+    needs: [build-and-test]
+    steps:
+      - name: Deploy to Remote
+        run: echo "aa";
