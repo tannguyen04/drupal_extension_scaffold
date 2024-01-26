@@ -99,5 +99,8 @@ jobs:
       DEPLOY_SSH_FINGERPRINT: ${{ secrets.DEPLOY_SSH_FINGERPRINT }}
     needs: [build-and-test]
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Deploy to Remote
         run: DEPLOY_BRANCH=${DEPLOY_BRANCH:-${GITHUB_REF_NAME}} .devtools/deploy.sh
