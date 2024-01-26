@@ -45,3 +45,6 @@ jobs:
 
       - name: Build the codebase
         run: .devtools/build-codebase.sh
+
+      - name: Start built-in PHP server
+        run: .devtools/start-server.sh
