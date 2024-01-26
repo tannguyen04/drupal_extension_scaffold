@@ -106,7 +106,7 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_KEY }}
-          name: id_rsa_${{ secrets.DEPLOY_SSH_FINGERPRINT }}
+          name: id_rsa
           known_hosts: unnecessary
 
       - name: Deploy to Remote
