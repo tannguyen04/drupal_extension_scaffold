@@ -56,8 +56,8 @@ echo "-------------------------------"
 [ "${DEPLOY_PROCEED}" != "1" ] && echo "> Skip deployment because $DEPLOY_PROCEED is not set to 1" && exit 0
 
 # echo "> Configure git and SSH to connect to remote servers for deployment."
-# mkdir -p "${HOME}/.ssh/"
-# echo -e "Host *\n\tStrictHostKeyChecking no\n" >"${HOME}/.ssh/config"
+mkdir -p "${HOME}/.ssh/"
+echo -e "Host *\n\tStrictHostKeyChecking no\n" >"${HOME}/.ssh/config"
 # DEPLOY_SSH_FILE="${DEPLOY_SSH_FINGERPRINT//:/}"
 # DEPLOY_SSH_FILE="${HOME}/.ssh/id_rsa_${DEPLOY_SSH_FILE//\"/}"
 # [ ! -f "${DEPLOY_SSH_FILE:-}" ] && echo "ERROR: Unable to find Deploy SSH key file ${DEPLOY_SSH_FILE}." && exit 1
