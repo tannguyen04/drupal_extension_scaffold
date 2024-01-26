@@ -27,6 +27,10 @@ jobs:
           - php-versions: '8.2'
             drupal-version: '10@beta'
 
+    env:
+      DRUPAL_VERSION: ${{ matrix.drupal-versions }}
+      DRUPAL_PROJECT_SHA: ${{ matrix.drupal-project-hash }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -36,5 +40,5 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
 
-      - name: Install dependencies
-        run: composer install
+      - name: Test
+        run: echo "$DRUPAL_PROJECT_SHA $DRUPAL_VERSION. Today is $DAY_OF_WEEK!"
