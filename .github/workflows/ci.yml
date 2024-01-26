@@ -53,4 +53,5 @@ jobs:
         run: .devtools/provision.sh
 
       - name: Lint code with PHPCS
+        working-directory: build
         run: vendor/bin/phpcs || [ "${CI_PHPCS_IGNORE_FAILURE:-0}" -eq 1 ]
