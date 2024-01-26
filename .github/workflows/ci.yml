@@ -110,6 +110,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           name: id_rsa
           known_hosts: unnecessary
+          config: |
+            Host *
+              StrictHostKeyChecking no
 
       - name: Deploy to Remote
         run: DEPLOY_BRANCH=${DEPLOY_BRANCH:-${GITHUB_REF_NAME}} .devtools/deploy.sh
