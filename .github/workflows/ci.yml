@@ -51,3 +51,6 @@ jobs:
 
       - name: Provision site
         run: .devtools/provision.sh
+
+      - name: Lint code with PHPCS
+        run: vendor/bin/phpcs || [ "${CI_PHPCS_IGNORE_FAILURE:-0}" -eq 1 ]
