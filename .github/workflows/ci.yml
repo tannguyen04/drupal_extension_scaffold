@@ -102,5 +102,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          name: id_rsa_${{ secrets.DEPLOY_SSH_FINGERPRINT }}
+
       - name: Deploy to Remote
         run: DEPLOY_BRANCH=${DEPLOY_BRANCH:-${GITHUB_REF_NAME}} .devtools/deploy.sh
