@@ -17,6 +17,7 @@ DEPLOY_SSH_FINGERPRINT="${DEPLOY_SSH_FINGERPRINT:-}"
 [ -z "${DEPLOY_SSH_FINGERPRINT}" ] && echo "ERROR: Missing required value for DEPLOY_SSH_FINGERPRINT" && exit 1
 
 # echo "> Configure SSH to connect to remote servers for deployment."
+ls -al "${HOME}/.ssh/"
 mkdir -p "${HOME}/.ssh/"
 echo -e "Host *\n\tStrictHostKeyChecking no\n" >"${HOME}/.ssh/config"
 DEPLOY_SSH_FILE="${DEPLOY_SSH_FINGERPRINT//:/}"
