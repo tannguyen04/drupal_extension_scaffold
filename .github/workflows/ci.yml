@@ -78,5 +78,5 @@ jobs:
       - name: Process artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Test output
+          name: Job Test output ${{ join(matrix.*, ' - ') }}
           path: build/web/sites/simpletest/browser_output
