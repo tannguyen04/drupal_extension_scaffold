@@ -48,3 +48,6 @@ jobs:
 
       - name: Start built-in PHP server
         run: .devtools/start-server.sh
+
+      - name: Provision site
+        run: .devtools/provision.sh
