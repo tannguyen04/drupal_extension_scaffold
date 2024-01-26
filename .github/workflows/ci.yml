@@ -89,14 +89,18 @@ jobs:
         with:
           name: Artifacts (${{ join(matrix.*, ', ') }})
           path: build/web/sites/simpletest/browser_output
+
   deploy:
     runs-on: 'ubuntu-20.04'
+
     env:
       DEPLOY_USER_NAME: ${{ secrets.DEPLOY_USER_NAME }}
       DEPLOY_USER_EMAIL: ${{ secrets.DEPLOY_USER_NAME }}
       DEPLOY_REMOTE: ${{ secrets.DEPLOY_REMOTE }}
       DEPLOY_PROCEED: ${{ secrets.DEPLOY_PROCEED }}
+
     needs: [build-and-test]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

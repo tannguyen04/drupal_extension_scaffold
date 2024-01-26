@@ -4,7 +4,7 @@ version: 2
 aliases:
   # SSH deployment key fingerprint from CircleCI App -> Project -> Settings -> SSH Permissions.
   # Replace with the value used for your project.
-  - &deploy_ssh_fingerprint "2d:71:4d:aa:4d:34:38:b5:8f:af:ca:3b:d4:82:6a:21"
+  - &deploy_ssh_fingerprint "SHA256:O907RiUJ9gWM3CCSFwufJljoixzgVxgqdWwsHNst4eQ"
 
   # Configuration for shared runner containers, applied to each job.
   - &container_config
