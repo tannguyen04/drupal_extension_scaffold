@@ -87,7 +87,7 @@ jobs:
       - name: Process artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Job Test output (${{ join(matrix.*, ', ') }})
+          name: Artifacts (${{ join(matrix.*, ', ') }})
           path: build/web/sites/simpletest/browser_output
   deploy:
     runs-on: 'ubuntu-20.04'
