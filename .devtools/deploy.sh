@@ -60,7 +60,7 @@ echo "> Add remote ${DEPLOY_REMOTE}."
 git remote add deployremote "${DEPLOY_REMOTE}"
 
 echo "> Push code to branch ${DEPLOY_BRANCH}."
-git push --force deployremote HEAD:"${DEPLOY_BRANCH}"
+git push --force deployremote "${DEPLOY_BRANCH}"
 
 echo "> Push tags."
 git push --force --tags deployremote || true
