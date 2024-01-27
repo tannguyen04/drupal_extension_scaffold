@@ -123,6 +123,10 @@ jobs:
           text: ${{ github.ref_name }}
           regex: '.*'
 
+      - name: Exit if branch & tag not match.
+        if: ${{ steps.regex-match-branch-name.outputs.match != ''  || steps.regex-match-tag-name.outputs.match != '' }}
+        run: exit -1
+
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
@@ -134,7 +138,6 @@ jobs:
               StrictHostKeyChecking no
 
       - name: Deploy to Remote
-        if: ${{ steps.regex-match-branch-name.outputs.match != ''  || steps.regex-match-tag-name.outputs.match != '' }}
         run: DEPLOY_BRANCH=${DEPLOY_BRANCH:-${GITHUB_REF_NAME}} .devtools/deploy.sh
 
 
