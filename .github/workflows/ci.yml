@@ -134,7 +134,7 @@ jobs:
               StrictHostKeyChecking no
 
       - name: Deploy to Remote
-        if: ${{ steps.regex-match-branch-name.outputs.match != ''  || steps.regex-match-branch-name.outputs.match != '' }}
+        if: ${{ steps.regex-match-branch-name.outputs.match != ''  || steps.regex-match-tag-name.outputs.match != '' }}
         run: DEPLOY_BRANCH=${DEPLOY_BRANCH:-${GITHUB_REF_NAME}} .devtools/deploy.sh
 
 
