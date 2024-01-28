@@ -48,6 +48,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -96,12 +102,12 @@ jobs:
 
   deploy:
     needs: [ build-and-test ]
-    if: github.event_name == 'push'
+    if: ${{ github.event_name == 'push'
         && needs.build-and-test.outputs.status == 'success'
         && (github.event.ref_type == 'tag' ||
         github.event.ref == 'refs/heads/9.x' ||
-        github.event.ref == 'refs/heads/9.x' ||
-        github.event.ref == 'refs/heads/ci')
+        github.event.ref == 'refs/heads/10.x' ||
+        github.event.ref == 'refs/heads/ci') }}
 
     runs-on: 'ubuntu-20.04'
 
