@@ -102,7 +102,7 @@ jobs:
 
   deploy:
     needs: [ build-and-test ]
-    if: ${{ github.event_name == 'push' && needs.build-and-test.outputs.status == 'success' && (github.event.ref_type == 'tag' || github.event.ref == 'refs/heads/10.x' ) }}
+    if: ${{ github.event_name == 'push' && (github.event.ref_type == 'tag' || github.event.ref == 'refs/heads/10.x') }}
 
     runs-on: 'ubuntu-20.04'
 
