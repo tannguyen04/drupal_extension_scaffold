@@ -102,7 +102,9 @@ jobs:
 
   deploy:
     needs: [ build-and-test ]
-    if: github.event_name == 'push' && (github.event.ref_type == 'tag'
+    if: |
+
+        github.event_name == 'push' && (github.event.ref_type == 'tag'
         || github.event.ref == 'refs/heads/10.x'
         || github.event.ref == 'refs/heads/9.x)
 
