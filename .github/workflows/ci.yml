@@ -104,10 +104,7 @@ jobs:
     needs: [ build-and-test ]
     if: ${{ github.event_name == 'push'
         && needs.build-and-test.outputs.status == 'success'
-        && (github.event.ref_type == 'tag' ||
-        github.event.ref == 'refs/heads/9.x' ||
-        github.event.ref == 'refs/heads/10.x' ||
-        github.event.ref == 'refs/heads/ci') }}
+        && (github.event.ref_type == 'tag' || github.event.ref == 'refs/heads/10.x' ) }}
 
     runs-on: 'ubuntu-20.04'
 
@@ -116,8 +113,6 @@ jobs:
       DEPLOY_USER_EMAIL: ${{ secrets.DEPLOY_USER_NAME }}
       DEPLOY_REMOTE: ${{ secrets.DEPLOY_REMOTE }}
       DEPLOY_PROCEED: ${{ secrets.DEPLOY_PROCEED }}
-
-
 
     steps:
       - name: Checkout code
