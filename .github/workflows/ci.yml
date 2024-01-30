@@ -105,7 +105,8 @@ jobs:
       || github.event.ref == 'refs/heads/10.x'
       || github.event.ref == 'refs/heads/9.x'
       || github.event.ref == 'refs/heads/main'
-      || github.event.ref == 'refs/heads/ci-test')
+      || github.event.ref == 'refs/heads/ci-test'
+      || github.event.ref == 'refs/heads/ci')
 
     runs-on: 'ubuntu-20.04'
 
